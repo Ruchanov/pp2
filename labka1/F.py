@@ -1,6 +1,6 @@
-x=input()
+x=int(input())
 while x>0:
-    y=input()
+    y=int(input())
     if y<=10:
         print("Go to work!")
     if y>10 & y<=25:
