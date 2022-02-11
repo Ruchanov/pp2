@@ -1,0 +1,5 @@
+x=int(input())
+s=input()
+l=list(map(int, s.split()))
+l.sort(reverse=True)
+print(l[0]*l[1])
