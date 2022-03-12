@@ -1,4 +1,4 @@
 import re
 with open('row.txt', 'r') as f:
     x = f.read()
-print('_'.join(i.capitalize() for i in x.split('_')))
+print(re.sub('([a-z0-9])([A-Z])', r'\1_\2', x).lower())
