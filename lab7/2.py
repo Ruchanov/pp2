@@ -19,6 +19,8 @@ i = 0
 screen = pg.display.set_mode((WIDTH,HEIGHT))
 clock = pg.time.Clock()
 
+background = pg.image.load("./images/player.jpg")
+
 pg.mixer.music.load(musiclist[i])
 pg.mixer.music.play(1)
 running = True
@@ -45,5 +47,6 @@ while running:
                 pg.mixer.music.load(musiclist[i])
                 pg.mixer.music.play(1) 
     pg.mixer.music.queue(musiclist[(i+1) % len(musiclist)])
+    screen.blit(background,(100,0))
     pg.display.flip()
 pg.quit()
