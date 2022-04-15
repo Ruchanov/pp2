@@ -21,7 +21,8 @@ commands = {
     'line': [4, 4, 44, 44],
     'rect': [52, 4, 44, 44],
     'circle': [4,50, 44, 44],
-    'eraser': [52, 50, 44, 44]
+    'eraser': [52, 50, 44, 44],
+    'color' : [4,96,44,44]
 }
 
 def set_surf():
@@ -128,7 +129,8 @@ d = {
     'line' : True,
     'rect': False,
     'circle': False,
-    'eraser': False
+    'eraser': False,
+    'color':False
 }
 
 set_surf()
@@ -193,6 +195,10 @@ while running:
                     pygame.draw.rect(surf, BACKGROUND, (pos[0], pos[1], ed, ed))
             if event.type == pygame.MOUSEBUTTONUP:
                 erase = False
+        elif d['color'] == 1:
+            cv += 1
+            if cv >= len(cveta):
+                cv = 0
     
     
     
