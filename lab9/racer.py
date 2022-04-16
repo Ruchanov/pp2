@@ -23,7 +23,7 @@ FLIP = pg.USEREVENT + 3
 pg.init()
 screen = pg.display.set_mode((WIDTH, HEIGHT))
 clock = pg.time.Clock()
-pg.display.set_caption("Nura v Aktobe")
+pg.display.set_caption("racer")
 
 font = pg.font.SysFont('Times New Roman', 40)
 pg.time.set_timer(FLIP, 150)
