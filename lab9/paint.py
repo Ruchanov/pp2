@@ -10,10 +10,9 @@ Comment your code
 pg.init()
 screen = pg.display.set_mode((800, 600))
 surf = pg.Surface((700, 600))
-buttons = pg.Surface((100, 240)) # создаю панель кнопок
+buttons = pg.Surface((100, 240)) 
 font = pg.font.SysFont("Verdana", 15)
-cur_color = 'white' # текущий цвет который могу менять
-# создаем словарь комманд
+cur_color = 'white'
 commands = {
     'right_triangle': [4, 4, 44, 44],
     'sqr': [52, 4, 44, 44],
@@ -21,7 +20,7 @@ commands = {
     'rhombus': [52, 50, 44, 44],
     'eraser' : [1000, 1000, 1, 1]
 }
-# функция для установки панели с кнопочек
+
 def setsurf():
     surf.fill('black')
     
@@ -39,10 +38,10 @@ def setsurf():
     buttons.blit(rh, (56, 58))
     screen.blit(surf, (0, 0))
     screen.blit(buttons, (700, 0))
-# функция для получения расстояния между двумя точками
+
 def get_distance(a,b): 
     return ((b[0] - a[0]) ** 2 + (b[1] - a[1]) ** 2) ** 0.5
-# функция для отрисовки прямоугольного треугольника
+
 def right_triangle(screen, cur, end, d, color): 
     x1, y1, x2, y2 = cur[0], cur[1], end[0], end[1] 
     difx = abs(x1-x2) 
@@ -58,10 +57,10 @@ def right_triangle(screen, cur, end, d, color):
             pg.draw.polygon(screen, color, [(x1, y1), (x1, y1 + dify), (x2, y2)], d)    
         else: 
             pg.draw.polygon(screen, color, [(x1, y1), (x1, y1 - dify), (x2, y2)], d)    
-# функция для отрисовки равностороннего треугольника
+
 def triangle(color, pos):
     pg.draw.polygon(surf, color, pos, 3)
-# функция для отрисовки квадрата
+
 def square(screen, start, end, d, color):
     x1 = start[0]
     y1 = start[1]
@@ -79,7 +78,7 @@ def square(screen, start, end, d, color):
             pg.draw.rect(screen, color, (x2, y1, a, a), d)
         else:
             pg.draw.rect(screen, color, (x2, y2, a, a), d)
-# функция для отрисовки ромба
+
 def rhombus(color, pos):
         pg.draw.polygon(surf, color, pos, 3)
 
@@ -103,7 +102,7 @@ while running:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
-        # меняем цвета  или выбираем ластик при нажатии на клавиши             
+                  
         if event.type == pg.KEYDOWN:
             if event.key == pg.K_1:
                 cur_color = 'red'
@@ -118,7 +117,7 @@ while running:
                 for k, v in di.items(): 
                     if k != 'eraser': 
                         di[k] = False   
-        # при нажатии на область определенной кнопочки меняем значение соответственной команды на True в словаре комманд           
+        
         if event.type == pg.MOUSEBUTTONDOWN:
             for k, v in commands.items():
                 if v[0] <= pos[0]-700 <= v[0] + v[2] and v[1] <= pos[1] <= v[1] + v[3]:
@@ -127,7 +126,7 @@ while running:
                         if i != k:
                             di[i] = False
                     break
-        # запускаем функции соответственных комманд                 
+                
         if di['right_triangle'] == 1:
             if event.type == pg.MOUSEBUTTONDOWN:
                 last_pos = pos
@@ -160,7 +159,7 @@ while running:
                     pg.draw.rect(surf, 'black', (pos[0], pos[1], ed, ed))
             if event.type == pg.MOUSEBUTTONUP:
                 erase = False
-    # выделяю красной рамкой выбранную комманду
+
     for k, v in di.items():
         if v == True:
             pg.draw.rect(buttons, 'red', commands[k], 1)
