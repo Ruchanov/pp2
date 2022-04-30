@@ -17,12 +17,11 @@ sql = '''
 '''
 current.execute(sql, [username])
 data = current.fetchone()
-# print(type(data))
-# print(data)
+
 
 if data == None:
     sql = '''
-        INSERT INTO users VALUES(%s, 0, 0, 0);
+        INSERT INTO users (id, username, score) VALUES(1, %s, 0);
     '''
     current.execute(sql, [username])
     config.commit()
