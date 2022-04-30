@@ -2,5 +2,5 @@ data = {
     'host' : 'localhost',
     'database' : 'postgres',
     'user' : 'postgres',
-    'password' : "bbaaurzhan123"
+    'password' : "Ayef1407_"
 }
