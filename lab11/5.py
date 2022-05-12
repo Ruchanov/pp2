@@ -31,7 +31,7 @@ $$
 begin
     delete
     from phonebook_lab11 as p
-    where (p.phone_num = $1) ;
+    where (p.phone_number = $1) ;
 end;
 $$
     LANGUAGE plpgsql;
