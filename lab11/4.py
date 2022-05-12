@@ -1,35 +1,36 @@
-from config import data
 import psycopg2
 
-sql_select_all_records = '''
-    SELECT * FROM phone_book;
+conn = psycopg2.connect(
+    host='localhost', 
+    database='postgres',
+    port=5432,
+    user='postgres',
+    password='Ayef1407_'
+)
+
+'''my SQL in DATAGRIP:
+select *  from phonebook_lab11 limit 1 offset 2;
+
+create or replace function getAllPhone(lim integer, ofs integer )
+    returns setof phonebook_lab11
+as
+$$
+begin
+    return query
+        select * from phonebook_lab11 limit $1 offset $2;
+end;
+$$ language plpgsql;
+
+
+select *
+from getAllPhone(1,2);
 '''
 
-sql_select_record_by_id = '''
-    SELECT * FROM phone_book WHERE phone_id = %s;
-'''
+cursor = conn.cursor()
+conn.autocommit = True
+limit = int(input("Limit: "))
+offset = int(input("Offset: "))
 
-sql_select_record_by_name = '''
-    SELECT * FROM phone_book WHERE user_name = %s;
-'''
-
-db = psycopg2.connect(**data)
-cursor = db.cursor()
-
-command = input("What kind of query do you want to execute?[all/id/name]:")
-if command == 'all':
-    cursor.execute(sql_select_all_records)
-    print(cursor.fetchall())
-elif command == 'id':
-    id = input("Input id of the record:")
-    cursor.execute(sql_select_record_by_id, (id,))
-    print(cursor.fetchone())
-elif command == 'name':
-    name = input("Input the user name of the record:")
-    cursor.execute(sql_select_record_by_name, (name,))
-    print(cursor.fetchall())
-else:
-    print("There is no such command")
-
-cursor.close()
-db.close()
+cursor.callproc('getAllPhone', (limit, offset))
+result = cursor.fetchall()
+print(result)
