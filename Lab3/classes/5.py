@@ -8,7 +8,8 @@ class Account:
     def get_balance(self):
         return self.__balance
     def withdraw(self,a):
-        if self.__balanc>=a:
+        if self.__balance>=a:
             self.__balance-=a
+
 
     
