@@ -14,10 +14,10 @@ as
 $$
 begin
     update phonebook_lab11
-    set phone_num = $3
+    set phone_number = $3
     where (phonebook_lab11.first_name = $1) and (phonebook_lab11.last_name = $2);
     IF NOT FOUND THEN
-        insert into phonebook(first_name,last_name,phone_num) values ($1, $2, $3);
+        insert into phonebook_lab11(first_name,last_name,phone_number) values ($1, $2, $3);
     END IF;
 end;
 $$
