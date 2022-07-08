@@ -1,4 +1,3 @@
-from operator import delitem
 from config import data
 import psycopg2,csv
 
@@ -18,7 +17,7 @@ except Exception as e:
     print("There is no such csv file, please input the values manually")
     name = input("Input the name:")
     phone = input("Input the names phone number:")
-    cursor.execute(sql, row)
+    cursor.execute(sql,(name,phone))
 
 cursor.close()
 db.commit()

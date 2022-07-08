@@ -21,7 +21,7 @@ data = current.fetchone()
 
 if data == None:
     sql = '''
-        INSERT INTO users (id, username, score) VALUES(1, %s, 0);
+        INSERT INTO users (id, username, score) VALUES(12, %s, 0);
     '''
     current.execute(sql, [username])
     config.commit()
