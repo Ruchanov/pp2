@@ -1,4 +1,3 @@
-from operator import truediv
 import pygame
 from random import randint, randrange
 pygame.init()
