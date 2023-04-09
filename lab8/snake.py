@@ -178,7 +178,7 @@ while not finished:
             pygame.draw.rect(screen, GREENYELLOW, (i, j, cell, cell), 1)
 
     pygame.draw.rect(screen, GRAY, (0, 0, WIDTH, HEIGHT), cell)
-    scores = font_small.render(f"score:{score}", True, BLACK)
+    scores = font_small.render(f"score:{score}", True, BLACK) 
     screen.blit(scores, (19, 14))
 
     cc = font_small.render(f"level:{lvl}", True, BLACK)

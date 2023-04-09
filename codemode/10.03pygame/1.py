@@ -30,8 +30,8 @@ while running:
             color = (random.randint(0,255),random.randint(0,255),random.randint(0,255))
 
     pg.draw.rect(screen,color,(x+dx,y+dy, rect_x, rect_y))
-    #x+=dx
-    #y+=dy
+    x+=dx
+    y+=dy
     
 
     if x >= WIDTH - rect_x or x<= 0:

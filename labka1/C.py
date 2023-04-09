@@ -7,4 +7,5 @@ def low(s):
         else:
             s2+=i
     return s2
+
 print(low(s))
