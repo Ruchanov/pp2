@@ -2,7 +2,7 @@ from config import data
 import psycopg2
 
 sql = '''
-    CREATE TABLE phone_book(
+    CREATE TABLE test20(
         phone_id SERIAL PRIMARY KEY,
         user_name VARCHAR(32),
         phone_number VARCHAR(32)

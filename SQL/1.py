@@ -4,7 +4,7 @@ config = psycopg2.connect(
     host='localhost', 
     database='postgres',
     user='postgres',
-    password='Ayef1407_'
+    password=''
 )
 
 current = config.cursor()
